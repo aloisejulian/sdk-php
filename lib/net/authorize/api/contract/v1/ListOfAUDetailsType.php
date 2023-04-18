@@ -5,7 +5,7 @@ namespace net\authorize\api\contract\v1;
 /**
  * Class representing ListOfAUDetailsType
  *
- * 
+ *
  * XSD Type: ListOfAUDetailsType
  */
 class ListOfAUDetailsType implements \JsonSerializable
@@ -163,15 +163,16 @@ class ListOfAUDetailsType implements \JsonSerializable
         }
         return $values;
     }
-    
+
     // Json Set Code
     public function set($data)
     {
         if(is_array($data) || is_object($data)) {
 			$mapper = \net\authorize\util\Mapper::Instance();
+	        $data = ['AuUpdate' => $data];
 			foreach($data AS $key => $value) {
 				$classDetails = $mapper->getClass(get_class() , $key);
-	 
+
 				if($classDetails !== NULL ) {
 					if ($classDetails->isArray) {
 						if ($classDetails->isCustomDefined) {
@@ -211,6 +212,6 @@ class ListOfAUDetailsType implements \JsonSerializable
 			}
 		}
     }
-    
+
 }
 
